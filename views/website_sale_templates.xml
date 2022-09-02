@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="product" name="jt_website_products_seo_product" inherit_id="website_sale.product">
+
+        <xpath expr="//div[@id='wrap']" position="attributes">
+            <attribute name="itemscope" />
+        </xpath>
+        <xpath expr="//div[@id='wrap']" position="attributes">
+            <attribute name="itemtype" />
+        </xpath>        
+
+        <xpath expr="//div[@id='wrap']" position="after">
+            <div t-if="product_variant" id="product_meta" style="display:none">
+                <h4>Other variants:</h4>
+                <t t-foreach="product.product_variant_ids" t-as="variant">
+                    <t t-set="combinfo" t-value="variant.product_tmpl_id._get_combination_info(product_id=variant.id, pricelist=pricelist)"/>
+                    <div itemscope="itemscope" itemtype="http://schema.org/Product" >
+                        <h5 itemprop="name" t-esc="variant.short_name"/>
+                        <a itemprop="url" t-attf-href="{{variant.website_url}}" t-esc="variant.short_name"/>
+                        <meta t-if="variant.description_sale"                        itemprop="description" t-attf-content="variant.description_sale"/>
+                        <meta t-if="variant.barcode and len(variant.barcode) == 13"  itemprop="gtin13" t-attf-content="{{variant.barcode}}" />
+                        <meta t-if="variant.default_code"                            itemprop="sku" t-attf-content="{{variant.default_code}}" />
+                        <meta itemprop="brand" t-attf-content="Not Only White"/>                        
+                        <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
+                            <span itemprop="price" t-esc="combinfo['price']" t-options='{"widget": "float", "precision": 2}'/>
+                            <span itemprop="priceCurrency" t-esc="website.currency_id.name"/>
+                        </div>
+                    </div>                    
+                </t>
+            </div>            
+        </xpath>
+    </template>
+
+    <template id="product_price" name="jt_website_products_seo_product_price" inherit_id="website_sale.product_price">        
+        <xpath expr="//div[hasclass('product_price')]" position="attributes">
+            <attribute name="itemscope" />
+        </xpath>
+        <xpath expr="//div[hasclass('product_price')]" position="attributes">
+            <attribute name="itemtype" />
+        </xpath>   
+    </template>
+
+    <template id="products_item" name="jt_website_products_seo_products_item" inherit_id="website_sale.products_item">
+        <xpath expr="//form" position="attributes">
+            <attribute name="itemscope" />
+        </xpath>
+        <xpath expr="//form" position="attributes">
+            <attribute name="itemtype" />
+        </xpath>
+
+        <xpath expr="//div[hasclass('product_price')]" position="attributes">
+            <attribute name="itemscope" />
+        </xpath>
+        <xpath expr="//div[hasclass('product_price')]" position="attributes">
+            <attribute name="itemtype" />
+        </xpath>         
+    </template>
+
+</odoo>
