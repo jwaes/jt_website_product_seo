@@ -21,10 +21,12 @@
                         <div t-if="variant.description_sale"                        itemprop="description" t-esc="variant.description_sale"/>
                         <meta t-if="variant.barcode and len(variant.barcode) == 14"  itemprop="gtin" t-attf-content="{{variant.barcode}}" />
                         <meta t-if="variant.default_code"                            itemprop="sku" t-attf-content="{{variant.default_code}}" />
-                        <meta itemprop="brand" t-attf-content="Not Only White"/>                        
+                        <meta itemprop="brand" t-attf-content="Not Only White"/>
+                        <span t-if="variant._get_images()" t-field="variant._get_images()[0].image_1920" t-options="{'widget': 'image', 'itemprop': 'image'}"/>
                         <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
                             <span itemprop="price" t-esc="'%.2f'%(combinfo['price'])"/>
                             <span itemprop="priceCurrency" t-esc="website.currency_id.name"/>
+                            <meta itemprop="valueAddedTaxIncluded" content="True"/>
                         </div>
                     </div>                    
                 </t>
