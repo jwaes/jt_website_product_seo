@@ -19,7 +19,7 @@
                         <h5 itemprop="name" t-esc="variant.short_name"/>
                         <a itemprop="url" t-attf-href="{{variant.website_url}}" t-esc="variant.short_name"/>
                         <meta t-if="variant.description_sale"                        itemprop="description" t-attf-content="variant.description_sale"/>
-                        <meta t-if="variant.barcode and len(variant.barcode) == 13"  itemprop="gtin13" t-attf-content="{{variant.barcode}}" />
+                        <meta t-if="variant.barcode and len(variant.barcode) == 14"  itemprop="gtin14" t-attf-content="{{variant.barcode}}" />
                         <meta t-if="variant.default_code"                            itemprop="sku" t-attf-content="{{variant.default_code}}" />
                         <meta itemprop="brand" t-attf-content="Not Only White"/>                        
                         <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
