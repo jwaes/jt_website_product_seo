@@ -26,6 +26,17 @@
                         <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
                             <span itemprop="price" t-esc="'%.2f'%(combinfo['price'])"/>
                             <span itemprop="priceCurrency" t-esc="website.currency_id.name"/>
+                            <t t-if="not variant.is_dealer_product">
+                                <t t-if="variant.free_qty">
+                                    <link itemprop="availability" href="https://schema.org/InStock" />
+                                </t>
+                                <t t-else="">
+                                    <link itemprop="availability" href="https://schema.org/LimitedAvailability" />
+                                </t>
+                            </t>
+                            <t t-else="">
+                                <link itemprop="availability" href="https://schema.org/InStoreOnly" />                            
+                            </t>
                             <meta itemprop="valueAddedTaxIncluded" content="True"/>
                         </div>
                     </div>                    
