@@ -22,7 +22,9 @@ odoo.define('jt_website_product_seo.VariantMixin', function (require) {
      * @param {Array} combination
      */
     VariantMixin._onChangeCombinationProductPixel = function (ev, $parent, combination) {
-        window.fbq('track', 'ViewContent');
+        if(window.fbq){
+            window.fbq('track', 'ViewContent');
+        };
     };
 
 
