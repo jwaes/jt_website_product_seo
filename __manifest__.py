@@ -16,14 +16,16 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.6',
+    'version': '0.8',
 
     # any module necessary for this one to work correctly
     'depends': ['base',"website_sale"],
 
     # always loaded
     'data': [
+        'views/res_config_settings_views.xml',
         'views/website_sale_templates.xml',
+        'views/website_templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
