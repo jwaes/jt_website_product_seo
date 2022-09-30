@@ -36,7 +36,7 @@ odoo.define('jt_website_product_seo.tracking', function (require) {
          * @private
          */
         _trackMetaPixel: function () {
-            if(windows.fbq){
+            if(window.fbq){
                 const websiteFBQ = window.fbq || function () { };
                 websiteFBQ.apply(this, arguments);
             };
