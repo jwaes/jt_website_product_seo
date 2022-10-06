@@ -13,11 +13,11 @@
                 t.src=v;s=b.getElementsByTagName(e)[0];
                 s.parentNode.insertBefore(t,s)}(window, document,'script',
                 'https://connect.facebook.net/en_US/fbevents.js');
-                fbq('init', '<t t-esc="website.facebook_pixel_key"/>');
+                fbq('init', '<t t-esc="website.facebook_pixel_key" t-if="website.is_production"/>');
                 <t name="fb-events">fbq('track', 'PageView');</t>
             </script>
             <noscript t-if="website and website.facebook_pixel_key and not editable">
-                <img height="1" width="1" style="display:none"
+                <img height="1" width="1" style="display:none" t-if="website.is_production"
                     t-attf-src="https://www.facebook.com/tr?id={{ website.facebook_pixel_key }}&amp;ev=PageView&amp;noscript=1"/>
             </noscript>
             <!-- End Meta Pixel Code -->

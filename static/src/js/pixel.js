@@ -52,7 +52,6 @@ odoo.define('jt_website_product_seo.tracking', function (require) {
          * @private
          */
         _onViewItemX(event, ...productsTrackingInfo) {
-            console.log('view item ... ');
             this._trackMetaPixel('track', 'ViewContent');
         },
 
