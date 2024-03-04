@@ -33,7 +33,7 @@
                                     <link itemprop="availability" href="https://schema.org/InStock"/>
                                 </t>
                                 <t t-else="">
-                                    <link itemprop="availability" href="https://schema.org/LimitedAvailability" />
+                                    <link itemprop="availability" href="https://schema.org/BackOrder" />
                                 </t>
                             </t>
                             <t t-else="">
@@ -48,10 +48,10 @@
     </template>
 
     <template id="product_price" name="jt_website_products_seo_product_price" inherit_id="website_sale.product_price">        
-        <xpath expr="//div[hasclass('product_price')]" position="attributes">
+        <xpath expr="//div[1]" position="attributes">
             <attribute name="itemscope" />
         </xpath>
-        <xpath expr="//div[hasclass('product_price')]" position="attributes">
+        <xpath expr="//div[1]" position="attributes">
             <attribute name="itemtype" />
         </xpath>   
     </template>
