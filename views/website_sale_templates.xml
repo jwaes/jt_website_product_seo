@@ -14,7 +14,7 @@
             <div t-if="product_variant" id="product_meta" style="display:none">
                 <h4>Other variants:</h4>
                 <t t-foreach="product.product_variant_ids" t-as="variant">
-                    <t t-set="combinfo" t-value="variant.product_tmpl_id._get_combination_info(product_id=variant.id, pricelist=pricelist)"/>
+                    <t t-set="combinfo" t-value="variant.product_tmpl_id._get_combination_info(product_id=variant.id)"/>
                     <div itemscope="itemscope" itemtype="http://schema.org/Product" >
                         <h5 itemprop="name" t-esc="variant.short_name"/>
                         <a itemprop="url" t-attf-href="{{variant.website_url}}" t-esc="variant.short_name"/>
