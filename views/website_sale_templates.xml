@@ -16,8 +16,8 @@
                 <t t-foreach="product.product_variant_ids" t-as="variant">
                     <t t-set="combinfo" t-value="variant.product_tmpl_id._get_combination_info(product_id=variant.id)"/>
                     <div itemscope="itemscope" itemtype="http://schema.org/Product" >
-                        <h5 itemprop="name" t-esc="variant.short_name"/>
-                        <a itemprop="url" t-attf-href="{{variant.website_url}}" t-esc="variant.short_name"/>
+                        <h5 itemprop="name" t-esc="variant.name"/>
+                        <a itemprop="url" t-attf-href="{{variant.website_url}}" t-esc="variant.name"/>
                         <div t-if="variant.description_sale"                        itemprop="description" t-esc="variant.description_sale"/>
                         <meta t-if="variant.barcode and len(variant.barcode) == 14"  itemprop="gtin" t-attf-content="{{variant.barcode}}" />
                         <meta t-if="variant.default_code"                            itemprop="sku" t-attf-content="{{variant.default_code}}" />
