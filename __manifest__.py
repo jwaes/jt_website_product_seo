@@ -33,8 +33,6 @@
     ],
     'assets': {
         'web.assets_frontend': [
-            'sale/static/src/js/variant_mixin.js',
-            'website_sale/static/src/js/variant_mixin.js',
             'jt_website_product_seo/static/src/js/pixel.js',
             'jt_website_product_seo/static/src/js/variant_mixin.js',
         ],
