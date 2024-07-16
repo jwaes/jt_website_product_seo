@@ -12,9 +12,15 @@
           help="Track website Activities, Improve your return on Advertising, Reach New and Existing
               Customers in Facebook Advertising">
           <field name="has_facebook_pixel" />
-          <field name="facebook_pixel_key" invisible="not has_facebook_pixel"
-            placeholder="XXXXXXXXXXXXXXX"
-            required="has_facebook_pixel == True" />
+
+          <div class="content-group" invisible="not has_facebook_pixel">
+            <div class="row mt16">
+              <label class="col-lg-3 o_light_label" string="Measurement ID" for="facebook_pixel_key" />
+              <field name="facebook_pixel_key" placeholder="XXXXXXXXXX"
+                required="has_facebook_pixel" />
+            </div>
+          </div>
+
         </setting>
       </setting>
 
